@@ -2,7 +2,8 @@
 
 
 
-class UtilisateursRepository{
+class UtilisateursRepository
+{
     private $bdd;
 
     public function __construct()
@@ -17,7 +18,7 @@ class UtilisateursRepository{
         $res = $req->execute(array(
             'nom' => $utilisateurs->getNom(),
             'prenom' => $utilisateurs->getPrenom(),
-            'mail' => $utilisateurs->getemail(),
+            'email' => $utilisateurs->getemail(),
             'mot_de_passe' => $utilisateurs->getMotDePasse(),
             'date_de_naissance' => $utilisateurs->getDateDeNaissance(),
             'ville_de_naissance' => $utilisateurs->getVilleDeNaissance(),
@@ -29,30 +30,36 @@ class UtilisateursRepository{
         }
 
     }
-    public function connexionUtilisateurs(Utilisateurs $utilisateurs) {
-        $sql = "SELECT * FROM utilisateurs WHERE email = :email";
+
+
+    public function connexionUtilisateurs(Utilisateurs $utilisateurs)
+    {
+        $sql = "SELECT * FROM utilisateurs WHERE email = :email"; // Assurez-vous qu'il y a seulement 1 paramètre
         $req = $this->bdd->getBdd()->prepare($sql);
-        $req->execute(array(
-            'email' => $utilisateurs->getemail()
-        ));
+        $req->execute([
+            ':email' => $utilisateurs->getEmail() // Bien utiliser ':' devant le nom du paramètre
+        ]);
 
-        $res = $req->fetch();
+        $res = $req->fetch(PDO::FETCH_ASSOC);
 
-        if ($res) {
-            if (password_verify($utilisateurs->getMotDePasse(), $res['mot_de_passe'])) {
-                $utilisateurs->setIdUtilisateur($res['id_utilisateur']);
-                $utilisateurs->setNom($res['nom']);
-                $utilisateurs->setPrenom($res['prenom']);
-                $utilisateurs->setemail($res['email']);
-                $utilisateurs->setDateDeNaissance($res['date_de_naissance']);
-                $utilisateurs->setVilleDeNaissance($res['ville_de_naissance']);
-                $utilisateurs->setRole($res['role']);
-
-                return true;
-            }
+        if (!$res) {
+            return null; // Aucun utilisateur trouvé
         }
 
-        return false;
-    }
+        // Vérification du mot de passe hashé avec password_verify()
+        if (!password_verify($utilisateurs->getMotDePasse(), $res['mot_de_passe'])) {
+            return null; // Mot de passe incorrect
+        }
 
+        // Remplissage de l'objet utilisateur
+        $utilisateurs->setIdUtilisateur($res['id_utilisateur']);
+        $utilisateurs->setNom($res['nom']);
+        $utilisateurs->setPrenom($res['prenom']);
+        $utilisateurs->setEmail($res['email']);
+        $utilisateurs->setDateDeNaissance($res['date_de_naissance']);
+        $utilisateurs->setVilleDeNaissance($res['ville_de_naissance']);
+        $utilisateurs->setRole($res['role']);
+
+        return $utilisateurs;
+    }
 }
