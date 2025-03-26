@@ -21,7 +21,7 @@ if (!isset($_POST["email"]) || !isset($_POST["mot_de_passe"]) || empty($_POST["e
     $utilisateursRepository = new UtilisateursRepository();
     $resultat = $utilisateursRepository->connexionUtilisateurs($utilisateur);
 
-    if ($utilisateur) {
+    if ($resultat) {
         session_start();
 
         $_SESSION['id_utilisateur'] = $utilisateur->getIdUtilisateur();
