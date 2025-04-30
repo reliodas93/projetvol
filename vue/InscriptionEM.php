@@ -35,14 +35,10 @@
         </div>
 
         <div class="form-group">
-            <label for="date_de_naissance"><i class="zmdi zmdi-lock"></i></label>
-            <input type="date" name="date_de_naissance" id="date_de_naissance" placeholder="Votre date_de_naissance" required/>
+            <label for="date_naissance"><i class="zmdi zmdi-lock"></i></label>
+            <input type="date" name="date_naissance" id="date_naissance" placeholder="Votre date_naissance" required/>
         </div>
 
-        <div class="form-group">
-            <label for="ville_de_naissance"><i class="zmdi zmdi-lock"></i></label>
-            <input type="text" name="ville_de_naissance" id="ville_de_naissance" placeholder="Votre ville_de_naissance" required/>
-        </div>
 
         <div class="form-group">
             <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" required />

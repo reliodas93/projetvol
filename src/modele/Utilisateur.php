@@ -1,6 +1,6 @@
 <?php
 
-class Utilisateurs
+class utilisateur
 {
     private $id_utilisateur;
 
@@ -87,41 +87,24 @@ class Utilisateurs
     {
         $this->mot_de_passe = $mot_de_passe;
     }
-    private $date_de_naissance;
+    private $date_naissance;
 
     /**
      * @return mixed
      */
-    public function getDateDeNaissance()
+    public function getDateNaissance()
     {
-        return $this->date_de_naissance;
+        return $this->date_naissance;
     }
 
     /**
-     * @param mixed $date_de_naissance
+     * @param mixed $date_naissance
      */
-    public function setDateDeNaissance($date_de_naissance)
+    public function setDateNaissance($date_naissance)
     {
-        $this->date_de_naissance = $date_de_naissance;
+        $this->date_naissance = $date_naissance;
     }
 
-    private $ville_de_naissance;
-
-    /**
-     * @return mixed
-     */
-    public function getVilleDeNaissance()
-    {
-        return $this->ville_de_naissance;
-    }
-
-    /**
-     * @param mixed $ville_de_naissance
-     */
-    public function setVilleDeNaissance($ville_de_naissance)
-    {
-        $this->ville_de_naissance = $ville_de_naissance;
-    }
     private $role;
 
     /**
@@ -138,6 +121,42 @@ class Utilisateurs
     public function setRole($role)
     {
         $this->role = $role;
+    }
+
+    private $ref_modele;
+
+    /**
+     * @return mixed
+     */
+    public function getRefModele()
+    {
+        return $this->ref_modele;
+    }
+
+    /**
+     * @param mixed $ref_modele
+     */
+    public function setRefModele($ref_modele)
+    {
+        $this->ref_modele = $ref_modele;
+    }
+
+    private $ville;
+
+    /**
+     * @return mixed
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * @param mixed $ville
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
     }
 
 

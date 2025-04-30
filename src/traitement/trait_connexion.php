@@ -10,7 +10,7 @@ if (!isset($_POST["email"]) || !isset($_POST["mot_de_passe"]) || empty($_POST["e
     header("Location: ../../vue/ConnexionEM.php");
     exit();
 } else {
-    $utilisateur = new Utilisateurs([
+    $utilisateur = new Utilisateur([
         'email' => $_POST["email"],
         'motDePasse' => $_POST["mot_de_passe"]
     ]);
@@ -18,8 +18,8 @@ if (!isset($_POST["email"]) || !isset($_POST["mot_de_passe"]) || empty($_POST["e
     $email = $_POST["email"];
     $motDePasse = $_POST["mot_de_passe"];
 
-    $utilisateursRepository = new UtilisateursRepository();
-    $resultat = $utilisateursRepository->connexionUtilisateurs($utilisateur);
+    $utilisateurRepository = new UtilisateurRepository();
+    $resultat = $utilisateurRepository->connexionUtilisateur($utilisateur);
 
     if ($resultat) {
         session_start();
@@ -29,8 +29,7 @@ if (!isset($_POST["email"]) || !isset($_POST["mot_de_passe"]) || empty($_POST["e
         $_SESSION['prenom'] = $utilisateur->getPrenom();
         $_SESSION['email'] = $utilisateur->getemail();
         $_SESSION['motDePasse'] = $utilisateur->getMotDePasse();
-        $_SESSION['date_de_naissance'] = $utilisateur->getDateDeNaissance();
-        $_SESSION['ville_de_naissance'] = $utilisateur->getVilleDeNaissance();
+        $_SESSION['date_naissance'] = $utilisateur->getDateNaissance();
 
         header("Location: ../../vue/AccueilEM.php");
         exit();
