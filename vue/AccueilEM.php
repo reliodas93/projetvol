@@ -57,7 +57,7 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="AccueilEM.php" class="active">Home</a></li>
+                        <li><a href="about.html" class="active">Home</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="deals.html">Deals</a></li>
                         <li><a href="reservation.html">Reservation</a></li>

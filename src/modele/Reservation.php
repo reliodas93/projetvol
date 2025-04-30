@@ -38,40 +38,40 @@ class Reservation
         $this->ref_utilisateur = $ref_utilisateur;
     }
 
-    private $ref_sceance;
+    private $ref_vol;
 
     /**
      * @return mixed
      */
-    public function getRefSceance()
+    public function getRefVol()
     {
-        return $this->ref_sceance;
+        return $this->ref_vol;
     }
 
     /**
-     * @param mixed $ref_sceance
+     * @param mixed $ref_vol
      */
-    public function setRefSceance($ref_sceance)
+    public function setRefVol($ref_vol)
     {
-        $this->ref_sceance = $ref_sceance;
+        $this->ref_vol = $ref_vol;
     }
 
-    private $nb_place_reservee;
+    private $prix_billet;
 
     /**
      * @return mixed
      */
-    public function getNbPlaceReservee()
+    public function getPrixBillet()
     {
-        return $this->nb_place_reservee;
+        return $this->prix_billet;
     }
 
     /**
-     * @param mixed $nb_place_reservee
+     * @param mixed $prix_billet
      */
-    public function setNbPlaceRerservee($nb_place_reservee)
+    public function setPrixBillet($prix_billet)
     {
-        $this->nb_place_reservee = $nb_place_reservee;
+        $this->prix_billet = $prix_billet;
     }
 
     public function __construct(array $donnee)
