@@ -62,6 +62,7 @@
                         <li><a href="deals.html">Deals</a></li>
                         <li><a href="reservation.html">Reservation</a></li>
                         <li><a href="reservation.html">Book Yours</a></li>
+                        <li><a href="ajoutVolEM.html">ajout de vol</a></li>
                     </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>
