@@ -16,7 +16,7 @@ if(empty($_POST["ville_depart"]) ||
     empty($_POST["ref_avion"])){
 
     echo "C'est pas bien ...";
-    header("Location: ../../vue/AjoutFilmEM.php");
+    header("Location: ../../vue/AjoutVolEM.php");
 }else{
     $vol = new Vol([
         'ville_depart' => $_POST['ville_depart'],

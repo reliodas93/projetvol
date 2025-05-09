@@ -31,7 +31,7 @@ class VolRepository
     }
     public function modifVol(vol $vol)
     {
-        $sql = "UPDATE vol SET ville_depart = :ville_depart, ville_arrive = :ville_arrive,date_depart = :date_depart,heure_depart = :heure_depart,prix_billet_initiale = :prix_bilet_initiale,ref_pilote = :ref_pilote,ref_avion = :ref_avion WHERE id_vol = :id_vol";
+        $sql = "UPDATE vol SET ville_depart = :ville_depart, ville_arrive = :ville_arrive,date_depart = :date_depart,heure_depart = :heure_depart,prix_billet_initiale = :prix_billet_initiale,ref_pilote = :ref_pilote,ref_avion = :ref_avion WHERE id_vol = :id_vol";
         $req = $this->bdd->getBdd()->prepare($sql);
         $res = $req->execute(array(
             'ville_depart' => $vol->getVilleDepart(),
